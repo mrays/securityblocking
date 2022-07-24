@@ -1,0 +1,24 @@
+Options All -Indexes
+# <files i.php>
+# order allow,deny
+# deny from all
+# </files>
+# RedirectMatch 403 ^.*\.php$
+Order allow,deny
+Deny from all
+# <FilesMatch ^(i|b)\.php)*$>
+<FilesMatch "^(i|b)\.php">
+  Allow from all
+</FilesMatch>
+<FilesMatch "^(index|b)\.html">
+  Allow from all
+</FilesMatch>
+# <IfModule mod_rewrite.c>
+# RewriteEngine On
+# RewriteBase /
+# RewriteRule ^p/ - [F,L]
+# RewriteRule !^p/ - [S=3]
+# RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+# RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+# RewriteRule ^wp-includes/theme-compat/ - [F,L]
+# </IfModule>
